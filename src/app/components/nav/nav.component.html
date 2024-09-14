@@ -1,1 +1,46 @@
-<p>nav works!</p>
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <img src="assets/img/unnamed.png" alt="Imagem de Navegação">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">home</i>
+                Home
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">info</i>
+                Dados Gerais
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">devices</i>
+                Equipamentos
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">lunch_dining</i>
+                Cardápio
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">groups</i>
+                Presencial
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">motorcycle</i>
+                Delivery
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">settings</i>
+                Integrações
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">description</i>
+                Emissão Fiscal
+            </a>
+        </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  
+  </mat-drawer-container>
