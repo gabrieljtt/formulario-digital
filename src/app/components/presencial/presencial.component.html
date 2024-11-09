@@ -1,0 +1,107 @@
+<div class="container mat-elevation-z8">
+    <h1>Atendimento Presencial</h1>
+
+    <mat-checkbox class="full-width" [(ngModel)]="semPresencial">Não Atendo Presencialmente</mat-checkbox>
+
+    <div class="diasSemana">
+        <label class="question-label">Dias Da Semana Que Atende No Presencial: *</label>
+            <section class="section-semana">
+                <mat-checkbox [(ngModel)]="diaSeg" [disabled]="semPresencial">Segunda</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaTer" [disabled]="semPresencial">Terça</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaQua" [disabled]="semPresencial">Quarta</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaQui" [disabled]="semPresencial">Quinta</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaSex" [disabled]="semPresencial">Sexta</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaSab" [disabled]="semPresencial">Sábado</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaDom" [disabled]="semPresencial">Domingo</mat-checkbox>
+        </section>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Informe Horários Que Você Atende No Presencial:</mat-label>
+            <input
+            required
+            [(ngModel)]="horariosPresencial" 
+            [disabled]="semPresencial"
+            name="horariosPresencial" 
+            matInput placeholder="Ex: Segunda a Sexta - 18:00 a 00:00">
+        </mat-form-field>
+    </form>
+
+    <div class="two-field">
+        <mat-form-field class="margin" appearance="outline">
+            <mat-label>Quantidade De Garçons:</mat-label>
+            <input required matInput type="number" [(ngModel)]="quantGarcom" [disabled]="semPresencial">
+        </mat-form-field>
+
+        <mat-form-field class="margin" appearance="outline">
+            <mat-label>Quantidade De Mesas:</mat-label>
+            <input required matInput type="number" [(ngModel)]="quantMesas" [disabled]="semPresencial">
+        </mat-form-field>
+    </div>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>De Que Forma Os Garçons Recebem? *</mat-label>
+            <mat-select
+                [(ngModel)]="labelPagGarcom"
+                [disabled]="semPresencial">
+              <mat-option *ngFor="let forma of pagGarcom" [value]="forma">
+                {{forma}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Valor Pago Aos Garçons:</mat-label>
+            <input required matInput type="number" class="right-align" 
+            [(ngModel)]="valorGarcom" 
+            [disabled]="semPresencial" 
+            placeholder="0,00">
+            <span matPrefix>R$&nbsp;</span>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container">
+        <section class="form-section">
+            <label class="question-label">Você Trabalha Com A Taxa De Serviço (10%)? *</label>
+            <div class="options">
+                <mat-radio-group
+                    [(ngModel)]="labelTaxa" [disabled]="semPresencial">
+                    <mat-radio-button *ngFor="let motivo of taxa" [value]="motivo">
+                    {{motivo}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    
+        <section class="form-section">
+            <label class="question-label">Deseja Utilizar Cardápio Digital Nas Mesas? *</label>
+            <div class="options">
+                <mat-radio-group
+                    [(ngModel)]="labelCardDigital" [disabled]="semPresencial">
+                    <mat-radio-button *ngFor="let motivo of cardDigital" [value]="motivo">
+                        {{motivo}}
+                </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Informações Adicionais: *</mat-label>
+          <textarea class="obs" [(ngModel)]="obsAdicional" 
+          [disabled]="semPresencial" name="obsAdicional" 
+          matInput placeholder="Informações sobre garçons, divisão da taxa de serviço...">
+        </textarea>
+        </mat-form-field>
+      </form>
+    
+    <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+</div>
+

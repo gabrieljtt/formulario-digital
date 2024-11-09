@@ -1,0 +1,31 @@
+<div class="container mat-elevation-z8">
+    <h1>Integrações</h1>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>Irá Integrar Alguma Plataforma de Entregas? *</mat-label>
+            <mat-select 
+              [(ngModel)]="labelIntegracaoMoto">
+                  <mat-option *ngFor="let integ of integracaoMoto" [value]="integ">
+                    {{integ}}
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="warn" (click)="openDialog()">Integrações Disponíveis</button>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Informe Os Logins Das Integrações: *</mat-label>
+          <textarea class="login" [(ngModel)]="infoLogin" name="infoFiscal" matInput placeholder="Ex: Ifood - fulano@email.com / 123456"></textarea>
+        </mat-form-field>
+      </form>
+
+      <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+</div>
+

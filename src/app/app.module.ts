@@ -26,18 +26,33 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Componentes
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DadosGeraisComponent } from './components/dados-gerais/dados-gerais.component';
+import { EquipamentosComponent } from './components/equipamentos/equipamentos.component';
+import { CardapioComponent } from './components/cardapio/cardapio.component';
+import { PresencialComponent } from './components/presencial/presencial.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
+import { FiscalComponent } from './components/fiscal/fiscal.component';
+import { IntegracoesComponent } from './components/integracoes/integracoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DadosGeraisComponent,
+    EquipamentosComponent,
+    CardapioComponent,
+    PresencialComponent,
+    DeliveryComponent,
+    FiscalComponent,
+    IntegracoesComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +77,8 @@ import { HeaderComponent } from './components/header/header.component';
      MatTableModule,
      MatIconModule,
      MatListModule,
-     MatCardModule
+     MatCardModule,
+     MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

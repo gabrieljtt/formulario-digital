@@ -1,0 +1,76 @@
+<div class="container mat-elevation-z8">
+    <h1>Emissão Fiscal</h1>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>Irá Emitir Cupom Fiscal Por Qual Meio? *</mat-label>
+            <mat-select 
+              [(ngModel)]="labelMeioFiscal">
+              <mat-option *ngFor="let meio of meioFiscal" [value]="meio">
+                {{meio}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Emissão Manual Ou Automática? *</mat-label>
+            <mat-select 
+              [(ngModel)]="labelEmissao">
+              <mat-option *ngFor="let meio of emissao" [value]="meio">
+                {{meio}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>Regime Tributário: *</mat-label>
+            <mat-select [(ngModel)]="labelRegime">
+              <mat-option *ngFor="let tipo of regimeTributario" [value]="tipo">
+                {{tipo}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Qual O Ambiente De Emissão? *</mat-label>
+            <mat-select 
+              [(ngModel)]="labelAmbiente">
+              <mat-option *ngFor="let tipo of ambiente" [value]="tipo">
+                {{tipo}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email Para Envio Das Notas XML:</mat-label>
+            <input
+            [(ngModel)]="emailXml" 
+            name="emailXml" 
+            matInput placeholder="Ex: contabilidade@email.com">
+        </mat-form-field>
+    </form>
+
+    <section class="form-section">
+        <label class="question-label">Insira O Certificado Digital A1, Caso Utilize:</label>    
+        <input type="file" (change)="inputFileChange($event)"/>
+    </section>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Informações Dados A1/SAT/MFE: *</mat-label>
+          <textarea class="obs" [(ngModel)]="infoFiscal" name="infoFiscal" matInput placeholder="Para Emissão A1 - Senha, Token CSC e ID
+Para Emissão SAT/MFE - Marca/Modelo e Código de Ativação"></textarea>
+        </mat-form-field>
+      </form>
+
+      <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+</div>
+

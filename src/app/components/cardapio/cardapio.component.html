@@ -1,0 +1,56 @@
+<div class="container mat-elevation-z8">
+    <h1>Cardápio</h1>
+
+    <div class="two-field">
+        <section class="form-section">
+            <label class="question-label">Já Enviou Seu Cardápio Para Saipos? *</label>
+            <div class="options">
+                <mat-radio-group 
+                    [(ngModel)]="labelCardapio">
+                    <mat-radio-button *ngFor="let motivo of cardapio" [value]="motivo">
+                        {{motivo}} </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    
+        <section class="form-section">
+            <label class="question-label">Como É O Cálculo Das Suas Pizzas? *</label>
+            <div class="options">
+                <mat-radio-group 
+                    [(ngModel)]="labelPizza">
+                    <mat-radio-button *ngFor="let motivo of pizzas" [value]="motivo">
+                        {{motivo}} </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    </div>
+
+    <section class="form-section">
+        <label class="question-label">É Possível Dividir Uma Pizza Meio Doce e Meia Salgada? *</label>
+        <div class="options">
+            <mat-radio-group 
+                [(ngModel)]="labelMeiaDS">
+                <mat-radio-button *ngFor="let motivo of meiaDS" [value]="motivo">
+                    {{motivo}} </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </section>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Caso Trabalhe Com Pizzas, Informe A Quantidade De Sabores Por Tamanho: *</mat-label>
+          <textarea class="obsPizzaSabores" [(ngModel)]="quantSabores" name="quantSabores" matInput placeholder="Ex: Pizza P - 1 sabor, Pizza G - Até 2 sabores..."></textarea>
+        </mat-form-field>
+    </form>
+
+    <section class="form-section">
+        <label class="question-label">Insira O Cardápio, Caso Não Tenha Enviado:</label>    
+        <input type="file" (change)="inputFileChange($event)"/>
+    </section>
+  
+    <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+</div>

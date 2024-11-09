@@ -1,0 +1,57 @@
+<div class="container mat-elevation-z8">
+    <h1>Equipamentos</h1>
+
+    <div class="two-field">
+        <mat-form-field class="margin" appearance="outline">
+            <mat-label>Quantidade De Computadores:</mat-label>
+            <input required matInput type="number" [(ngModel)]="quantComp">
+        </mat-form-field>
+    
+        <mat-form-field class="margin" appearance="outline">
+            <mat-label>Quantidade De Impressoras:</mat-label>
+            <input required matInput type="number" [(ngModel)]="quantImp">
+        </mat-form-field>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Informe Marca E Modelo Das Impressoras:</mat-label>
+            <input
+            required
+            [(ngModel)]="modeloImpressora" 
+            name="modeloImpressora" 
+            matInput placeholder="Ex: Epson TM-T20X...">
+        </mat-form-field>
+    </form>
+
+    <div class="two-field">
+        <section class="form-section">
+            <label class="question-label">Sua Internet É Acima De 10MB? *</label>
+            <div class="options">
+                <mat-radio-group 
+                    [(ngModel)]="labelInternet">
+                        <mat-radio-button *ngFor="let motivo of internet" [value]="motivo">
+                            {{motivo}} </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    
+        <section class="form-section">
+            <label class="question-label">Sistema Operacional: *</label>
+            <div class="options">
+                <mat-checkbox [(ngModel)]="win7">Windows 7</mat-checkbox>
+                <mat-checkbox [(ngModel)]="win8">Windows 8</mat-checkbox>
+                <mat-checkbox [(ngModel)]="win10">Windows 10</mat-checkbox>
+                <mat-checkbox [(ngModel)]="win11">Windows 11</mat-checkbox>
+                <mat-checkbox [(ngModel)]="outroSist">Outro Sistema</mat-checkbox>
+            </div>
+        </section>
+    </div>
+
+    <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+
+</div>

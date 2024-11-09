@@ -1,0 +1,174 @@
+<div class="container mat-elevation-z8">
+    <h1>Atendimento Delivery</h1>
+
+    <mat-checkbox class="full-width" [(ngModel)]="semDelivery">Não Atendo Delivery</mat-checkbox>
+
+    <div class="diasSemana">
+        <label class="question-label">Dias Da Semana Que Atende No Delivery: *</label>
+            <section class="section-semana">
+                <mat-checkbox [(ngModel)]="diaSeg" [disabled]="semDelivery">Segunda</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaTer" [disabled]="semDelivery">Terça</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaQua" [disabled]="semDelivery">Quarta</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaQui" [disabled]="semDelivery">Quinta</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaSex" [disabled]="semDelivery">Sexta</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaSab" [disabled]="semDelivery">Sábado</mat-checkbox>
+                <mat-checkbox [(ngModel)]="diaDom" [disabled]="semDelivery">Domingo</mat-checkbox>
+        </section>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Informe Horários Que Você Atende No Delivery:</mat-label>
+            <input
+            required
+            [(ngModel)]="horariosDelivery"
+            [disabled]="semDelivery"
+            name="horariosDelivery" 
+            matInput placeholder="Ex: Segunda a Sexta - 18:00 a 00:00">
+        </mat-form-field>
+    </form>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>Como Funciona Suas Entregas? *</mat-label>
+            <mat-select 
+                [(ngModel)]="labelEntregas"
+                [disabled]="semDelivery">
+                <mat-option *ngFor="let tipo of entregas" [value]="tipo">
+                    {{tipo}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="margin" appearance="outline">
+            <mat-label>Quantidade De Entregadores Próprios:</mat-label>
+            <input required matInput type="number" 
+            [(ngModel)]="quantEntregador" 
+            [disabled]="semDelivery">
+        </mat-form-field>
+    </div>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>Os Entregadores Próprios Recebem Como? *</mat-label>
+            <mat-select
+                [(ngModel)]="labelPagEntregas"
+                [disabled]="semDelivery">
+                <mat-option *ngFor="let forma of pagEntregas" [value]="forma">
+                    {{forma}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Valor Pago Aos Entregadores Próprios: *</mat-label>
+            <input matInput type="number" class="right-align" 
+            [(ngModel)]="valorEntregador" 
+            [disabled]="semDelivery" placeholder="0,00">
+            <span matPrefix>R$&nbsp;</span>
+        </mat-form-field>
+    </div>
+
+    <div class="form-container">
+        <section class="form-section">
+            <label class="question-label">Sua Cidade É CEP Único? *</label>
+            <div class="options">
+                <mat-radio-group 
+                    [(ngModel)]="labelCep"
+                    [disabled]="semDelivery">
+                    <mat-radio-button *ngFor="let tipo of cep" [value]="tipo">
+                        {{tipo}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    
+        <section class="form-section">
+            <label class="question-label">Como Funciona Suas Áreas De Entrega? *</label>
+            <div class="options">
+                <mat-radio-group
+                    [(ngModel)]="labelAreas"
+                    [disabled]="semDelivery">
+                    <mat-radio-button *ngFor="let forma of areas" [value]="forma">
+                        {{forma}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Informações Adicionais: *</mat-label>
+          <textarea class="obs" [(ngModel)]="obsAdicional" 
+          name="obsAdicional"  
+          matInput
+          [disabled]="semDelivery"
+          placeholder="Informações sobre empresa de entregas, forma de pagamento aos entregadores..."></textarea>
+        </mat-form-field>
+      </form>
+
+      <h1>Site Delivery</h1>
+
+      <div class="checkbox-site">
+      <mat-checkbox class="full-width" 
+      [(ngModel)]="semSite" 
+      [disabled]="semDelivery">Não Terei Site Delivery</mat-checkbox>
+      </div>
+
+      <div class="two-field">
+        <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Valor Mínimo Para Pedidos:</mat-label>
+            <input matInput type="number" class="right-align"
+            [(ngModel)]="valorSite" 
+            [disabled]="semDelivery" 
+            [disabled]="semSite" placeholder="0,00">
+            <span matPrefix>R$&nbsp;</span>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Domínio Do Site Delivery:</mat-label>
+            <input
+            required
+            [(ngModel)]="dominioSite"
+            [disabled]="semDelivery" 
+            [disabled]="semSite"
+            name="dominioSite" 
+            matInput placeholder="Ex: explosaoburger.saipos.com">
+        </mat-form-field>
+    </div>
+
+    <div class="two-field">
+        <mat-form-field appearance="outline">
+            <mat-label>Como Funcionará O Site Delivery? *</mat-label>
+            <mat-select
+            [(ngModel)]="labelFuncSite"
+            [disabled]="semDelivery" 
+            [disabled]="semSite">
+                <mat-option *ngFor="let meio of funcSite" [value]="meio">
+                    {{meio}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Agendamento De Pedidos: *</mat-label>
+            <mat-select
+            [(ngModel)]="labelAgend"
+            [disabled]="semDelivery" 
+            [disabled]="semSite">
+                <mat-option *ngFor="let dias of agendamento" [value]="dias">
+                    {{dias}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    
+    <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+</div>
+

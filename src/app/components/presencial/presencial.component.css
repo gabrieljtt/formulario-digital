@@ -1,0 +1,95 @@
+.container {
+    width: 40rem;
+    margin: auto;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: .6rem;
+    background: linear-gradient(180deg, rgba(22,81,131,0.10407913165266103) 0%, rgba(61,85,198,0.11528361344537819) 53%);
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.two-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.two-field mat-form-field {
+    width: 49%;
+}
+
+.right-align {
+    text-align: right;
+}
+
+input.right-align::-webkit-outer-spin-button,
+input.right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.right-align {
+    -moz-appearance: textfield;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.diasSemana {
+    margin-top: 1rem;
+}
+
+.question-label {
+    margin-bottom: .6rem;
+    font-weight: bold;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-radio-button {
+    margin-bottom: .6rem;
+}
+
+.section-semana {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: .6rem;
+    margin-bottom: 1rem;
+}
+
+.obs {
+    min-height: 2rem;
+    max-height: 5rem;
+}
+
+.button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.button button {
+    width: 50%;
+}

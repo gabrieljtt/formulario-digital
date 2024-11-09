@@ -1,0 +1,82 @@
+<div class="container mat-elevation-z8">
+    <h1>Dados Gerais</h1>
+
+    <div class="two-field">
+        <mat-form-field class="email" appearance="outline">
+            <mat-label>Informe Seu E-mail:</mat-label>
+            <input
+            required
+            [formControl]="validarEmail"
+            [(ngModel)]="email" 
+            name="email" 
+            matInput placeholder="Ex: fulano@email.com">
+        </mat-form-field>
+    
+        <mat-form-field class="fantasia" appearance="outline">
+            <mat-label>Informe O Nome Fantasia Da Sua Loja:</mat-label>
+            <input
+            required
+            [(ngModel)]="nomeFantasia" 
+            name="nomeFantasia" 
+            matInput>
+        </mat-form-field>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Informe Os Usuários De Acesso Ao Sistema:</mat-label>
+            <input
+            required
+            [(ngModel)]="usuarioSistema" 
+            name="usuarioSistema" 
+            matInput placeholder="Ex: 2 garçons, 1 caixa...">
+        </mat-form-field>
+    </form>
+
+    <div class="two-field">
+        <section class="form-section">
+            <label class="question-label">Sua Loja Já Está Em Operação? *</label>
+            <div class="options">
+                <mat-radio-group 
+                [(ngModel)]="labelOperacao">
+                    <mat-radio-button class="full-width" *ngFor="let motivo of operacoes" [value]="motivo">
+                        {{motivo}} </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    
+        <section class="form-section">
+            <label class="question-label">Configurações Extras: *</label>
+            <div class="options">
+                <mat-radio-group 
+                [(ngModel)]="labelExtra">
+                    <mat-radio-button class="full-width" *ngFor="let motivo of extras" [value]="motivo">
+                        {{motivo}} </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </section>
+    </div>
+    
+    <section class="section-pagamento">
+        <label class="question-label">Formas De Pagamento Aceitas: *</label>
+        <mat-checkbox [(ngModel)]="pagDinheiro">Dinheiro</mat-checkbox>
+        <mat-checkbox [(ngModel)]="pagPix">Pix</mat-checkbox>
+        <mat-checkbox [(ngModel)]="pagVale">Vale</mat-checkbox>
+        <mat-checkbox [(ngModel)]="pagCredito">Crédito</mat-checkbox>
+        <mat-checkbox [(ngModel)]="pagDebito">Débito</mat-checkbox>
+    </section>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Observações Sobre Formas De Pagamento? *</mat-label>
+          <textarea class="obspagamento" [(ngModel)]="obsFormaPag" name="obsFormaPag" matInput placeholder="Bandeiras aceitas, taxas cobradas..."></textarea>
+        </mat-form-field>
+      </form>
+    
+    <div class="button">
+        <button class="width"
+        [disabled]="!validaCampos()" 
+        mat-raised-button color="primary">Registrar</button>
+    </div>
+</div>
+

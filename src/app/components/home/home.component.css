@@ -1,6 +1,11 @@
+.container {
+    display: flex;
+}
+
 .card {
     width: 20%;
     margin: 1rem auto;
     background: linear-gradient(180deg, rgba(251,251,251,1) 0%, rgba(251,251,251,1) 97%);
 }
+
 
